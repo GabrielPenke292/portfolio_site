@@ -1,6 +1,7 @@
 <script setup>
 import ProfileCard from './components/ProfileCard.vue';
 import Navbar from './components/Navbar.vue';
+
 const profile = {
   name: 'Gabriel Penke',
   description: 'Full Stack Developer',
@@ -18,9 +19,17 @@ const profile = {
     
     <!-- Conteúdo principal -->
     <div class="content">
-      <!-- Menu Lateral de navegação-->
-      <Navbar />
-      <ProfileCard :profile="profile" />
+      <div class="main-container">
+        <!-- Área da navbar com espaçamento -->
+        <div class="navbar-area">
+          <Navbar />
+        </div>
+        
+        <!-- Área do conteúdo principal -->
+        <div class="content-area">
+          <ProfileCard :profile="profile" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -52,20 +61,50 @@ const profile = {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* Ajuste para o conteúdo principal */
-.content > :last-child {
+.main-container {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 0;
+}
+
+.navbar-area {
+  flex-shrink: 0;
+  padding-top: 40px;
+  margin-right: 0;
+}
+
+.content-area {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 80px; /* Espaço para a navbar */
+  justify-content: flex-start; /* Alinha à esquerda */
+  align-items: flex-start; /* Alinha ao topo para ficar ao lado do primeiro ícone */
+  padding-top: 40px;
+  padding-left: 0;
+  margin-left: 0;
+  position: relative;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .content > :last-child {
+  .main-container {
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 20px;
+  }
+  
+  .navbar-area {
+    padding-top: 20px;
+    margin-right: 0;
+  }
+  
+  .content-area {
+    padding-top: 0;
+    justify-content: center; /* Centraliza apenas no mobile */
+    align-items: center; /* Centraliza no mobile */
     margin-left: 0;
-    margin-top: 60px; /* Espaço para navbar horizontal */
   }
 }
 </style>

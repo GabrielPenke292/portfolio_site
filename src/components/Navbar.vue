@@ -59,10 +59,8 @@ const setActive = (section) => {
 
 <style scoped>
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 80px;
+  position: relative;
+  width: 100px;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
@@ -70,7 +68,8 @@ const setActive = (section) => {
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
-  z-index: 1000;
+  border-radius: 20px;
+  margin: 0; /* Remove margem */
 }
 
 .nav-container {
@@ -78,6 +77,8 @@ const setActive = (section) => {
   flex-direction: column;
   gap: 15px;
   align-items: center;
+  margin: 0; /* Remove margem */
+  padding: 0; /* Remove padding */
 }
 
 .nav-button {
@@ -127,6 +128,7 @@ const setActive = (section) => {
     flex-direction: row;
     justify-content: center;
     padding: 0 20px;
+    border-radius: 15px;
   }
   
   .nav-container {

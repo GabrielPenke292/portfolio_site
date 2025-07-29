@@ -24,11 +24,12 @@ const props = defineProps({
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   padding: 30px;
+  margin-top: 20px;
   box-shadow: 0 8px 32px rgba(104, 241, 40, 0.5);
   backdrop-filter: blur(10px);
   text-align: center;
   max-width: 400px;
-  margin: 0 auto;
+  
 }
 
 .profile-image {
@@ -55,5 +56,15 @@ const props = defineProps({
   color: #666;
   font-size: 1.1rem;
   margin: 0;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 20px;
+    max-width: 100%;
+    margin-top: 0;
+  }
 }
 </style>
