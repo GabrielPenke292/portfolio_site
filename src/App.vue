@@ -3,7 +3,7 @@ import ProfileCard from './components/ProfileCard.vue';
 import Navbar from './components/Navbar.vue';
 const profile = {
   name: 'Gabriel Penke',
-  description: 'Desenvolvedor Full Stack',
+  description: 'Full Stack Developer',
   image: '/perfil.jpg',
 };
 </script>
