@@ -1,4 +1,11 @@
 <script setup>
+import ProfileCard from './components/ProfileCard.vue';
+
+const profile = {
+  name: 'Gabriel Penke',
+  description: 'Desenvolvedor Full Stack',
+  image: '/perfil.jpg',
+};
 </script>
 
 <template>
@@ -11,7 +18,7 @@
     
     <!-- Conteúdo principal -->
     <div class="content">
-      <h1>Hello World</h1>
+      <ProfileCard :profile="profile" />
     </div>
   </div>
 </template>
