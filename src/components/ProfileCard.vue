@@ -24,7 +24,7 @@ const props = defineProps({
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   padding: 30px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(104, 241, 40, 0.5);
   backdrop-filter: blur(10px);
   text-align: center;
   max-width: 400px;
@@ -41,7 +41,7 @@ const props = defineProps({
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(104, 241, 40, 0.3);
 }
 
 .profile-info h2 {
