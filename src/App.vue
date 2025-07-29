@@ -4,7 +4,8 @@ import Navbar from './components/Navbar.vue';
 
 const profile = {
   name: 'Gabriel Penke',
-  description: 'Full Stack Developer',
+  title: 'Full Stack Developer',
+  description: "Hi, I'm Gabriel and I'm a Full Stack Developer with +5 years of experience developing systems and delivering solutions to clients.",
   image: '/perfil.jpg',
 };
 </script>

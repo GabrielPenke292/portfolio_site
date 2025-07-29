@@ -5,6 +5,7 @@
     </div>
     <div class="profile-info">
       <h2>{{ profile.name }}</h2>
+      <h3>{{ profile.title }}</h3>
       <p>{{ profile.description }}</p>
     </div>
   </div>
