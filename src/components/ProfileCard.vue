@@ -51,12 +51,30 @@ const props = defineProps({
   margin-bottom: 10px;
   font-size: 1.8rem;
   font-weight: 600;
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+}
+.profile-info h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .profile-info p {
   color: #666;
   font-size: 1.1rem;
   margin: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 
