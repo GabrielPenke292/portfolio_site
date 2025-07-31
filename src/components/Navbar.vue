@@ -78,6 +78,7 @@ const setActive = (section) => {
   padding: 20px 0;
   border-radius: 20px;
   margin: 0;
+  z-index: 1000; /* Adicionado z-index para criar contexto */
 }
 
 .nav-container {
@@ -142,8 +143,9 @@ const setActive = (section) => {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  z-index: 1000;
+  z-index: 9999; /* Aumentado significativamente */
   backdrop-filter: blur(10px);
+  pointer-events: none; /* Evita interferência com outros elementos */
 }
 
 .tooltip::before {
@@ -156,7 +158,7 @@ const setActive = (section) => {
   height: 0;
   border-top: 4px solid transparent;
   border-bottom: 4px solid transparent;
-  border-right: 4px solid rgba(0, 0, 0, 0.9);
+  border-right: 4px solid rgba(212, 84, 19, 0.9);
 }
 
 .nav-button:hover .tooltip {

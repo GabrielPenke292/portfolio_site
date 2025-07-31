@@ -30,7 +30,8 @@ const props = defineProps({
   backdrop-filter: blur(10px);
   text-align: center;
   max-width: 400px;
-  z-index: 1;
+  z-index: 1; /* Mantido baixo para não interferir */
+  position: relative; /* Adicionado para criar contexto */
 }
 
 .profile-image {

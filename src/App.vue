@@ -75,6 +75,8 @@ const profile = {
   flex-shrink: 0;
   padding-top: 40px;
   margin-right: 0;
+  position: relative;
+  z-index: 1000; /* Garante que a navbar fique por cima */
 }
 
 .content-area {
@@ -86,6 +88,7 @@ const profile = {
   padding-left: 0;
   margin-left: 0;
   position: relative;
+  z-index: 1; /* Mantém o conteúdo abaixo da navbar */
 }
 
 /* Responsividade */
