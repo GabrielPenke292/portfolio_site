@@ -25,13 +25,14 @@ const props = defineProps({
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   padding: 30px;
-  margin-top: 20px;
   box-shadow: 0 8px 32px rgba(104, 241, 40, 0.5);
   backdrop-filter: blur(10px);
   text-align: center;
-  max-width: 400px;
-  z-index: 1; /* Mantido baixo para não interferir */
-  position: relative; /* Adicionado para criar contexto */
+  flex: 1; /* Ocupa o espaço restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centraliza o conteúdo */
 }
 
 .profile-image {
@@ -57,6 +58,7 @@ const props = defineProps({
   padding: 15px;
   border-radius: 10px;
 }
+
 .profile-info h3 {
   color: #333;
   margin-bottom: 10px;
@@ -78,13 +80,33 @@ const props = defineProps({
   border-radius: 10px;
 }
 
-
 /* Responsividade */
 @media (max-width: 768px) {
   .profile-card {
     padding: 20px;
-    max-width: 100%;
-    margin-top: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .profile-image img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .profile-info h2 {
+    font-size: 1.4rem;
+    padding: 10px;
+  }
+  
+  .profile-info h3 {
+    font-size: 1rem;
+    padding: 10px;
+  }
+  
+  .profile-info p {
+    font-size: 0.9rem;
+    padding: 10px;
   }
 }
 </style>

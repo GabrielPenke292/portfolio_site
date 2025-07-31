@@ -1,12 +1,27 @@
 <script setup>
 import ProfileCard from './components/ProfileCard.vue';
 import Navbar from './components/Navbar.vue';
+import HomeSection from './components/sections/HomeSection.vue';
+import { ref } from 'vue';
 
 const profile = {
   name: 'Gabriel Penke',
   title: 'Full Stack Developer',
   description: "Hi, I'm Gabriel and I'm a Full Stack Developer with +5 years of experience developing systems and delivering solutions to clients.",
   image: '/perfil.jpg',
+};
+
+const activeSection = ref('home');
+
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+    activeSection.value = sectionId;
+  }
 };
 </script>
 
@@ -18,19 +33,19 @@ const profile = {
       Seu navegador não suporta vídeos.
     </video>
     
-    <!-- Conteúdo principal -->
-    <div class="content">
-      <div class="main-container">
-        <!-- Área da navbar com espaçamento -->
-        <div class="navbar-area">
-          <Navbar />
-        </div>
-        
-        <!-- Área do conteúdo principal -->
-        <div class="content-area">
-          <ProfileCard :profile="profile" />
-        </div>
-      </div>
+    <!-- Layout fixo: Navbar + Profile -->
+    <div class="fixed-layout">
+      <Navbar 
+        :active-section="activeSection" 
+        @section-change="scrollToSection" 
+      />
+      <ProfileCard :profile="profile" />
+    </div>
+    
+    <!-- Área scrollável com conteúdo -->
+    <div class="scrollable-content">
+      <HomeSection />
+      <!-- Outras seções serão adicionadas aqui -->
     </div>
   </div>
 </template>
@@ -41,6 +56,7 @@ const profile = {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  display: flex;
 }
 
 .background-video {
@@ -53,62 +69,46 @@ const profile = {
   z-index: -1;
 }
 
-.content {
-  position: relative;
-  z-index: 1;
-  display: flex;
+/* Layout fixo: Navbar + Profile */
+.fixed-layout {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 400px;
   height: 100vh;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-.main-container {
+  z-index: 1000;
   display: flex;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-  gap: 0;
+  flex-direction: row; /* Mudado para row para ficar lado a lado */
+  padding: 20px;
+  gap: 20px;
 }
 
-.navbar-area {
-  flex-shrink: 0;
-  padding-top: 40px;
-  margin-right: 0;
-  position: relative;
-  z-index: 1000; /* Garante que a navbar fique por cima */
-}
-
-.content-area {
+/* Área scrollável */
+.scrollable-content {
+  margin-left: 400px;
   flex: 1;
-  display: flex;
-  justify-content: flex-start; /* Alinha à esquerda */
-  align-items: flex-start; /* Alinha ao topo para ficar ao lado do primeiro ícone */
-  padding-top: 40px;
-  padding-left: 0;
-  margin-left: 0;
-  position: relative;
-  z-index: 1; /* Mantém o conteúdo abaixo da navbar */
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  height: 100vh;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .main-container {
+  .app-container {
     flex-direction: column;
-    padding: 0 20px;
-    gap: 20px;
   }
   
-  .navbar-area {
-    padding-top: 20px;
-    margin-right: 0;
+  .fixed-layout {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 10px;
   }
   
-  .content-area {
-    padding-top: 0;
-    justify-content: center; /* Centraliza apenas no mobile */
-    align-items: center; /* Centraliza no mobile */
+  .scrollable-content {
     margin-left: 0;
+    margin-top: 0;
   }
 }
 </style>

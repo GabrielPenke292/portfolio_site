@@ -2,44 +2,15 @@
 <template>
   <nav class="navbar">
     <div class="nav-container">
-      <button class="nav-button active" @click="setActive('home')" title="Home">
-        <Home class="nav-icon" />
-        <span class="tooltip">Home</span>
-      </button>
-      
-      <button class="nav-button" @click="setActive('about')" title="About">
-        <FileText class="nav-icon" />
-        <span class="tooltip">About</span>
-      </button>
-      
-      <button class="nav-button" @click="setActive('projects')" title="Projects">
-        <List class="nav-icon" />
-        <span class="tooltip">Projects</span>
-      </button>
-      
-      <button class="nav-button" @click="setActive('skills')" title="Skills">
-        <PenTool class="nav-icon" />
-        <span class="tooltip">Skills</span>
-      </button>
-      
-      <button class="nav-button" @click="setActive('contact')" title="Contact">
-        <MessageCircle class="nav-icon" />
-        <span class="tooltip">Contact</span>
-      </button>
-      
-      <button class="nav-button" @click="setActive('testimonials')" title="Testimonials">
-        <Quote class="nav-icon" />
-        <span class="tooltip">Testimonials</span>
-      </button>
-      
-      <button class="nav-button" @click="setActive('resume')" title="Resume">
-        <File class="nav-icon" />
-        <span class="tooltip">Resume</span>
-      </button>
-      
-      <button class="nav-button" @click="setActive('profile')" title="Profile">
-        <User class="nav-icon" />
-        <span class="tooltip">Profile</span>
+      <button 
+        v-for="item in navItems" 
+        :key="item.id"
+        :class="['nav-button', { active: activeSection === item.id }]"
+        @click="handleSectionChange(item.id)"
+        :title="item.label"
+      >
+        <component :is="item.icon" class="nav-icon" />
+        <span class="tooltip">{{ item.label }}</span>
       </button>
     </div>
   </nav>
@@ -58,10 +29,28 @@ import {
   User 
 } from 'lucide-vue-next';
 
-const activeSection = ref('home');
+const props = defineProps({
+  activeSection: {
+    type: String,
+    default: 'home'
+  }
+});
 
-const setActive = (section) => {
-  activeSection.value = section;
+const emit = defineEmits(['section-change']);
+
+const navItems = [
+  { id: 'home', icon: Home, label: 'Home' },
+  { id: 'about', icon: FileText, label: 'About' },
+  { id: 'projects', icon: List, label: 'Projects' },
+  { id: 'skills', icon: PenTool, label: 'Skills' },
+  { id: 'contact', icon: MessageCircle, label: 'Contact' },
+  { id: 'testimonials', icon: Quote, label: 'Testimonials' },
+  { id: 'resume', icon: File, label: 'Resume' },
+  { id: 'profile', icon: User, label: 'Profile' }
+];
+
+const handleSectionChange = (sectionId) => {
+  emit('section-change', sectionId);
 };
 </script>
 
@@ -78,7 +67,7 @@ const setActive = (section) => {
   padding: 20px 0;
   border-radius: 20px;
   margin: 0;
-  z-index: 1000; /* Adicionado z-index para criar contexto */
+  z-index: 1000;
 }
 
 .nav-container {
@@ -143,9 +132,9 @@ const setActive = (section) => {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  z-index: 9999; /* Aumentado significativamente */
+  z-index: 9999;
   backdrop-filter: blur(10px);
-  pointer-events: none; /* Evita interferência com outros elementos */
+  pointer-events: none;
 }
 
 .tooltip::before {
