@@ -5,7 +5,7 @@
         <h1 class="hero-title">Welcome to My Portfolio</h1>
         <p class="hero-subtitle">Full Stack Developer with +5 years of experience</p>
         <div class="hero-description">
-          <p>Hi, I'm Gabriel and I'm a Full Stack Developer with +5 years of experience developing systems and delivering solutions to clients.</p>
+          <p>I really hope you like my portfolio and I'm looking forward to chat with you.</p>
         </div>
         <div class="hero-actions">
           <button class="btn-primary">View Projects</button>

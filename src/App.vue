@@ -2,6 +2,7 @@
 import ProfileCard from './components/ProfileCard.vue';
 import Navbar from './components/Navbar.vue';
 import HomeSection from './components/sections/HomeSection.vue';
+import AboutSection from './components/sections/AboutSection.vue';
 import { ref } from 'vue';
 
 const profile = {
@@ -45,7 +46,7 @@ const scrollToSection = (sectionId) => {
     <!-- Área scrollável com conteúdo -->
     <div class="scrollable-content">
       <HomeSection />
-      <!-- Outras seções serão adicionadas aqui -->
+      <AboutSection />
     </div>
   </div>
 </template>
