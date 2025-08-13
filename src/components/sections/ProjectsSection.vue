@@ -16,12 +16,13 @@
 
 <style scoped>
 .projects-section {
-    padding: 100px 0;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .projects-container {
