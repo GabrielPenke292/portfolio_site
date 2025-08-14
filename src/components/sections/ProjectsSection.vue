@@ -2,15 +2,34 @@
   <section id="projects" class="projects-section">
     <div class="projects-container">
         <div class="projects-header">
-            <h2>Projects</h2>
-            <p>Here are some of the projects I've worked on.</p>
+            <h2 class="projects-title">Projects</h2>
+            <p class="projects-description">Here are some of the projects I've worked on.</p>
         </div>
     </div>
   </section>
 </template>
 
 <script>
-
+  const projects = [
+    {
+        title: 'Project 1',
+        description: 'Description of project 1',
+        image: 'image1.jpg',
+        link: 'https://www.google.com'
+    },
+    {
+        title: 'Project 2',
+        description: 'Description of project 1',
+        image: 'image1.jpg',
+        link: 'https://www.google.com'
+    },
+    {
+        title: 'Project 3',
+        description: 'Description of project 2',
+        image: 'image2.jpg',
+        link: 'https://www.google.com'
+    },
+  ]
 
 </script>
 
@@ -27,6 +46,23 @@
 
 .projects-container {
     max-width: 1200px;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.projects-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.projects-description {
+  font-size: 1.2rem;
+  color: #fff;
 }
 
 </style>
