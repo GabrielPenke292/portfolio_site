@@ -24,14 +24,33 @@
 
                     </div>
                 </form>
+                <hr class="contact-divider">
+            </div>
+            <div class="contact-links">
+                <div class="contact-link">
+                    <a href="https://www.linkedin.com/in/gabriel-penke-953771206/" target="_blank">
+                        <Linkedin class="contact-icon" />
+                    </a>
+                </div>
+                <div class="contact-link">
+                    <a href="https://github.com/GabrielPenke292" target="_blank">
+                        <Github class="contact-icon" />
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 </template>
 
 <script>
+import { Linkedin, Github } from 'lucide-vue-next'
+
 export default {
     name: 'ContactSection',
+    components: {
+        Linkedin,
+        Github
+    },
     data() {
         return {
             
@@ -123,6 +142,43 @@ export default {
     outline: none;
     border-color: #ff6b35;
     box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.contact-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.contact-link a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.contact-link a:hover {
+    color: #ff6b35;
+}
+
+.contact-icon {
+    width: 2rem;
+    height: 2rem;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.contact-link a:hover .contact-icon {
+    transform: scale(1.2);
+    color: #ff6b35;
 }
 
 </style>
