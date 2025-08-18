@@ -43,6 +43,12 @@ export default {
             image: 'image3.jpg',
             link: 'https://www.google.com'
         },
+        {
+            title: 'Project 4',
+            description: 'Description of project 4',
+            image: 'image4.jpg',
+            link: 'https://www.google.com'
+        }
       ]
     }
   }
