@@ -24,9 +24,8 @@ import {
   List, 
   PenTool, 
   MessageCircle, 
-  Quote, 
   File, 
-  User 
+  BookOpen
 } from 'lucide-vue-next';
 
 const props = defineProps({
@@ -42,11 +41,10 @@ const navItems = [
   { id: 'home', icon: Home, label: 'Home' },
   { id: 'about', icon: FileText, label: 'About' },
   { id: 'projects', icon: List, label: 'Projects' },
+  { id: 'courses', icon: BookOpen, label: 'Courses' },
   { id: 'skills', icon: PenTool, label: 'Skills' },
   { id: 'contact', icon: MessageCircle, label: 'Contact' },
-  { id: 'testimonials', icon: Quote, label: 'Testimonials' },
   { id: 'resume', icon: File, label: 'Resume' },
-  { id: 'profile', icon: User, label: 'Profile' }
 ];
 
 const handleSectionChange = (sectionId) => {

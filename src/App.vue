@@ -4,6 +4,7 @@ import Navbar from './components/Navbar.vue';
 import HomeSection from './components/sections/HomeSection.vue';
 import AboutSection from './components/sections/AboutSection.vue';
 import ProjectsSection from './components/sections/ProjectsSection.vue';
+import CoursesSection from './components/sections/CoursesSection.vue';
 import { ref } from 'vue';
 
 const profile = {
@@ -49,6 +50,7 @@ const scrollToSection = (sectionId) => {
       <HomeSection />
       <AboutSection />
       <ProjectsSection />
+      <CoursesSection />
     </div>
   </div>
 </template>
