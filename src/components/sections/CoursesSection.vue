@@ -5,7 +5,16 @@
                 <h2 class="courses-title">Courses</h2>
                 <p class="courses-description">Here are some of the courses I've taken.</p>
             </div>
-
+            <div class="courses-grid">  
+                <div class="course-item" v-for="course in courses" :key="course.title">
+                    <div class="course-image">
+                        <img :src="course.image" :alt="course.title" />
+                    </div>
+                    <h3 class="course-title">{{ course.title }}</h3>
+                    <p class="course-description">{{ course.description }}</p>
+                    <a :href="course.certificate" class="course-link">View Certificate</a>
+                </div>
+            </div>
         </div>
     </section>
 </template>
@@ -17,32 +26,32 @@ export default {
         return {
             courses: [
                 {
-                    title: 'Course 1',
+                    title: 'The Complete 2025 Web Development Bootcamp',
+                    platform: 'Udemy',
                     description: 'Description of course 1',
                     image: 'image1.jpg',
-                    technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
-                    link: 'https://www.google.com'
+                    certificate: 'https://www.google.com'
                 },
                 {
-                    title: 'Course 2',
+                    title: 'The Complete 2025 Web Development Bootcamp',
+                    platform: 'Udemy',
                     description: 'Description of course 2',
                     image: 'image2.jpg',
-                    technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
-                    link: 'https://www.google.com'
+                    certificate: 'https://www.google.com'
                 },
                 {
-                    title: 'Course 3',
+                    title: 'The Complete 2025 Web Development Bootcamp',
+                    platform: 'Udemy',
                     description: 'Description of course 3',
                     image: 'image3.jpg',
-                    technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
-                    link: 'https://www.google.com'
+                    certificate: 'https://www.google.com'
                 },
                 {
-                    title: 'Course 4',
+                    title: 'The Complete 2025 Web Development Bootcamp',
+                    platform: 'Udemy',
                     description: 'Description of course 4',
                     image: 'image4.jpg',
-                    technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
-                    link: 'https://www.google.com'
+                    certificate: 'https://www.google.com'
                 }
             ]
         }
