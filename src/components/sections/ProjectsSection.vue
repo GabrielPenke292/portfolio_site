@@ -12,6 +12,13 @@
                 </div>
                 <h3 class="project-title">{{ project.title }}</h3>
                 <p class="project-description">{{ project.description }}</p>
+                <div class="project-technologies">
+                    <template v-for="tech in project.technologies" :key="tech">
+                        <span class="tech-tag">
+                            <span class="tech-tag-label">{{ tech }}</span>
+                        </span>
+                    </template>
+                </div>
                 <a :href="project.link" class="project-link">View Project</a>
             </div>
         </div>
@@ -29,24 +36,28 @@ export default {
             title: 'Project 1',
             description: 'Description of project 1',
             image: 'image1.jpg',
+            technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
             link: 'https://www.google.com'
         },
         {
             title: 'Project 2',
             description: 'Description of project 2',
             image: 'image2.jpg',
+            technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
             link: 'https://www.google.com'
         },
         {
             title: 'Project 3',
             description: 'Description of project 3',
             image: 'image3.jpg',
+            technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
             link: 'https://www.google.com'
         },
         {
             title: 'Project 4',
             description: 'Description of project 4',
             image: 'image4.jpg',
+            technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
             link: 'https://www.google.com'
         }
       ]
@@ -129,4 +140,26 @@ export default {
   color: #fff;
 }
 
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 15px 0 20px 0;
+  justify-content: center;
+}
+
+.tech-tag {
+    display: inline-block;
+}
+
+.tech-tag-label {
+  background: rgba(104, 241, 40, 0.2);
+  color: #68f128;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(104, 241, 40, 0.3);
+  display: inline-block;
+}
 </style>
