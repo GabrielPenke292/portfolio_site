@@ -1,9 +1,9 @@
 <template>
-    <section id="skills" class="skills-section">
-        <div class="skills-container">
-            <div class="skills-header">
-                <h2 class="skills-title">Skills</h2>
-                <p class="skills-description">Here are some skills</p>
+    <section id="resume" class="resume-section">
+        <div class="resume-container">
+            <div class="resume-header">
+                <h2 class="resume-title">Resume</h2>
+                <p class="resume-description">Here is my resume to download</p>
             </div>
             
         </div>
@@ -15,7 +15,7 @@
 </script>
 
 <style scoped>
-.skills-section {
+.resume-section {
     min-height: 100vh;
     padding: 40px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
@@ -25,23 +25,23 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.skills-container {
+.resume-container {
     max-width: 1200px;
 }
 
-.skills-header {
+.resume-header {
     text-align: center;
     margin-bottom: 50px;
 }
 
-.skills-title {
+.resume-title {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 10px;
     color: #fff;
 }
 
-.skills-description {
+.resume-description {
     font-size: 1.2rem;
     color: #fff;
 }

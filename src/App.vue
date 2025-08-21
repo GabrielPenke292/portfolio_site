@@ -7,6 +7,7 @@ import ProjectsSection from './components/sections/ProjectsSection.vue';
 import CoursesSection from './components/sections/CoursesSection.vue';
 import ContactSection from './components/sections/ContactSection.vue';
 import SkillsSection from './components/sections/SkillsSection.vue';
+import ResumeSection from './components/sections/ResumeSection.vue';
 import { ref } from 'vue';
 
 const profile = {
@@ -55,6 +56,7 @@ const scrollToSection = (sectionId) => {
       <CoursesSection />
       <SkillsSection />
       <ContactSection />
+      <ResumeSection />
     </div>
   </div>
 </template>
