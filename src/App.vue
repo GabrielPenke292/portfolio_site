@@ -137,7 +137,7 @@ const scrollToSection = (sectionId) => {
   position: fixed;
   left: 0;
   top: 0;
-  width: 400px;
+  width: 500px;
   height: 100vh;
   z-index: 1000;
   display: flex;
@@ -148,7 +148,7 @@ const scrollToSection = (sectionId) => {
 
 /* Área scrollável */
 .scrollable-content {
-  margin-left: 400px;
+  margin-left: 500px;
   flex: 1;
   overflow-y: auto;
   scroll-behavior: smooth;
@@ -156,6 +156,46 @@ const scrollToSection = (sectionId) => {
 }
 
 /* Responsividade */
+/* Tablets grandes e desktops pequenos */
+@media (max-width: 1200px) {
+  .fixed-layout {
+    width: 450px;
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .scrollable-content {
+    margin-left: 450px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .fixed-layout {
+    width: 400px;
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .scrollable-content {
+    margin-left: 400px;
+  }
+}
+
+/* Tablets pequenos */
+@media (max-width: 900px) {
+  .fixed-layout {
+    width: 350px;
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .scrollable-content {
+    margin-left: 350px;
+  }
+}
+
+/* Tablets pequenos e mobile landscape */
 @media (max-width: 768px) {
   .app-container {
     flex-direction: column;
@@ -165,13 +205,69 @@ const scrollToSection = (sectionId) => {
     position: relative;
     width: 100%;
     height: auto;
-    flex-direction: row;
-    padding: 10px;
+    flex-direction: column; /* Mudado para column para empilhar navbar e profile */
+    padding: 15px;
+    gap: 15px;
+    border-radius: 0;
+    margin-bottom: 0;
   }
   
   .scrollable-content {
     margin-left: 0;
     margin-top: 0;
+    height: calc(100vh - 200px); /* Ajusta altura considerando navbar + profile */
+  }
+  
+  .background-video {
+    height: 100%;
+  }
+}
+
+/* Mobile grande */
+@media (max-width: 480px) {
+  .fixed-layout {
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .scrollable-content {
+    height: calc(100vh - 180px);
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 360px) {
+  .fixed-layout {
+    padding: 8px;
+    gap: 8px;
+  }
+  
+  .scrollable-content {
+    height: calc(100vh - 160px);
+  }
+}
+
+/* Dispositivos muito pequenos */
+@media (max-width: 320px) {
+  .fixed-layout {
+    padding: 6px;
+    gap: 6px;
+  }
+  
+  .scrollable-content {
+    height: calc(100vh - 140px);
+  }
+}
+
+/* Orientação landscape em dispositivos móveis */
+@media (max-width: 768px) and (orientation: landscape) {
+  .fixed-layout {
+    height: auto;
+    min-height: 80px;
+  }
+  
+  .scrollable-content {
+    height: calc(100vh - 100px);
   }
 }
 </style>
