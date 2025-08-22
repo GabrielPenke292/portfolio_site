@@ -20,6 +20,7 @@
                     </template>
                 </div>
                 <a :href="project.link" class="project-link">View Project</a>
+                <button class="project-button" @click="showProjectDetails(project.id)">About Project</button>
             </div>
         </div>
     </div>
@@ -124,7 +125,6 @@ export default {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.1);
   transition: transform 0.3s ease;
-  cursor: pointer;
 }
 
 .project-item:hover {
@@ -151,6 +151,17 @@ export default {
 .project-link {
   font-size: 1.2rem;
   color: #fff;
+}
+
+.project-button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #1267e6;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .project-technologies {
