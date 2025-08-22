@@ -33,6 +33,7 @@ export default {
     return {
       projects: [
         {
+            id: 1,
             title: 'Project 1',
             description: 'Description of project 1',
             image: 'image1.jpg',
@@ -40,6 +41,7 @@ export default {
             link: 'https://www.google.com'
         },
         {
+            id: 2,
             title: 'Project 2',
             description: 'Description of project 2',
             image: 'image2.jpg',
@@ -47,6 +49,7 @@ export default {
             link: 'https://www.google.com'
         },
         {
+            id: 3,
             title: 'Project 3',
             description: 'Description of project 3',
             image: 'image3.jpg',
@@ -54,9 +57,18 @@ export default {
             link: 'https://www.google.com'
         },
         {
+            id: 4,
             title: 'Project 4',
             description: 'Description of project 4',
             image: 'image4.jpg',
+            technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
+            link: 'https://www.google.com'
+        },
+        {
+            id: 5,
+            title: 'Project 5',
+            description: 'Description of project 5',
+            image: 'image5.jpg',
             technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
             link: 'https://www.google.com'
         }
@@ -112,6 +124,7 @@ export default {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.1);
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .project-item:hover {
