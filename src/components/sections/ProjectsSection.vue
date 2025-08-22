@@ -6,7 +6,7 @@
             <p class="projects-description">Here are some of the projects I've worked on.</p>
         </div>
         <div class="projects-grid">
-            <div class="project-item" v-for="project in projects" :key="project.title">
+            <div class="project-item" v-for="project in projects" :key="project.id">
                 <div class="project-image">
                     <img :src="project.image" :alt="project.title" />
                 </div>
@@ -24,59 +24,177 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal de detalhes do projeto -->
+    <div v-if="isModalOpen" class="modal-overlay" @click="closeModal">
+        <div class="modal-content" @click.stop>
+            <button class="modal-close" @click="closeModal">&times;</button>
+            
+            <div v-if="selectedProject" class="modal-body">
+                <div class="modal-header">
+                    <h2 class="modal-title">{{ selectedProject.title }}</h2>
+                    <div class="modal-subtitle">{{ selectedProject.subtitle }}</div>
+                </div>
+                
+                <div class="modal-image">
+                    <img :src="selectedProject.image" :alt="selectedProject.title" />
+                </div>
+                
+                <div class="modal-description">
+                    <h3>Description</h3>
+                    <p>{{ selectedProject.fullDescription }}</p>
+                </div>
+                
+                <div class="modal-features">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li v-for="feature in selectedProject.features" :key="feature">{{ feature }}</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-technologies">
+                    <h3>Technologies Used</h3>
+                    <div class="tech-tags">
+                        <span v-for="tech in selectedProject.technologies" :key="tech" class="tech-tag-modal">
+                            {{ tech }}
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="modal-links">
+                    <a :href="selectedProject.link" class="modal-link" target="_blank">
+                        <span>View Live Project</span>
+                    </a>
+                    <a :href="selectedProject.github" class="modal-link github" target="_blank" v-if="selectedProject.github">
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
   </section>
 </template>
 
-<script>
-export default {
-  name: 'ProjectsSection',
-  data() {
-    return {
-      projects: [
-        {
-            id: 1,
-            title: 'Project 1',
-            description: 'Description of project 1',
-            image: 'image1.jpg',
-            technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
-            link: 'https://www.google.com'
-        },
-        {
-            id: 2,
-            title: 'Project 2',
-            description: 'Description of project 2',
-            image: 'image2.jpg',
-            technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
-            link: 'https://www.google.com'
-        },
-        {
-            id: 3,
-            title: 'Project 3',
-            description: 'Description of project 3',
-            image: 'image3.jpg',
-            technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
-            link: 'https://www.google.com'
-        },
-        {
-            id: 4,
-            title: 'Project 4',
-            description: 'Description of project 4',
-            image: 'image4.jpg',
-            technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
-            link: 'https://www.google.com'
-        },
-        {
-            id: 5,
-            title: 'Project 5',
-            description: 'Description of project 5',
-            image: 'image5.jpg',
-            technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
-            link: 'https://www.google.com'
-        }
-      ]
+<script setup>
+import { ref } from 'vue';
+
+const isModalOpen = ref(false);
+const selectedProject = ref(null);
+
+const projects = ref([
+    {
+        id: 1,
+        title: 'E-Commerce Platform',
+        subtitle: 'Full-stack e-commerce solution',
+        description: 'A complete e-commerce platform with user authentication, product management, and payment integration.',
+        fullDescription: 'This project is a comprehensive e-commerce solution that includes user registration and authentication, product catalog with search and filtering, shopping cart functionality, secure payment processing with Stripe integration, order management system, and an admin panel for product and user management. The platform is built with modern web technologies and follows responsive design principles.',
+        image: 'image1.jpg',
+        technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe API'],
+        features: [
+            'User authentication and authorization',
+            'Product catalog with search and filters',
+            'Shopping cart and checkout process',
+            'Secure payment processing',
+            'Order tracking and management',
+            'Admin dashboard for management',
+            'Responsive design for all devices'
+        ],
+        link: 'https://www.google.com',
+        github: 'https://github.com/username/ecommerce'
+    },
+    {
+        id: 2,
+        title: 'Task Management App',
+        subtitle: 'Collaborative project management tool',
+        description: 'A collaborative task management application for teams and project coordination.',
+        fullDescription: 'A comprehensive task management application designed for teams to collaborate on projects. Features include real-time updates, task assignment, progress tracking, deadline management, team communication, and detailed reporting. The app supports multiple project workspaces and integrates with popular tools like Slack and Google Calendar.',
+        image: 'image2.jpg',
+        technologies: ['Vue.js', 'Firebase', 'Tailwind CSS', 'PWA'],
+        features: [
+            'Real-time task updates',
+            'Team collaboration tools',
+            'Project workspace management',
+            'Progress tracking and analytics',
+            'Deadline and reminder system',
+            'Mobile-first responsive design',
+            'Offline functionality (PWA)'
+        ],
+        link: 'https://www.google.com',
+        github: 'https://github.com/username/taskmanager'
+    },
+    {
+        id: 3,
+        title: 'Portfolio Website',
+        subtitle: 'Personal portfolio and blog',
+        description: 'A modern portfolio website with blog functionality and contact forms.',
+        fullDescription: 'A modern, responsive portfolio website built with Vue.js and featuring a clean, professional design. The site includes sections for showcasing projects, skills, and experience, along with a blog section for sharing insights and articles. Features include smooth scrolling navigation, contact forms with validation, and SEO optimization.',
+        image: 'image3.jpg',
+        technologies: ['Vue.js', 'CSS3', 'JavaScript', 'Vite'],
+        features: [
+            'Responsive design for all devices',
+            'Smooth scrolling navigation',
+            'Project showcase gallery',
+            'Blog functionality',
+            'Contact form with validation',
+            'SEO optimized',
+            'Fast loading performance'
+        ],
+        link: 'https://www.google.com',
+        github: 'https://github.com/username/portfolio'
+    },
+    {
+        id: 4,
+        title: 'Weather Dashboard',
+        subtitle: 'Real-time weather information app',
+        description: 'A weather dashboard providing real-time weather data and forecasts.',
+        fullDescription: 'A comprehensive weather dashboard that provides real-time weather information, hourly and daily forecasts, and historical weather data. The app integrates with multiple weather APIs for accurate data and includes features like location-based weather, weather maps, and customizable alerts. The interface is designed to be intuitive and provides weather information in an easy-to-understand format.',
+        image: 'image4.jpg',
+        technologies: ['JavaScript', 'OpenWeather API', 'Chart.js', 'CSS Grid'],
+        features: [
+            'Real-time weather data',
+            'Hourly and daily forecasts',
+            'Interactive weather maps',
+            'Location-based weather',
+            'Weather alerts and notifications',
+            'Historical weather data',
+            'Responsive dashboard design'
+        ],
+        link: 'https://www.google.com',
+        github: 'https://github.com/username/weather'
+    },
+    {
+        id: 5,
+        title: 'Social Media Dashboard',
+        subtitle: 'Analytics and management platform',
+        description: 'A comprehensive dashboard for managing and analyzing social media accounts.',
+        fullDescription: 'A powerful social media management platform that allows users to schedule posts, analyze performance metrics, and manage multiple social media accounts from a single dashboard. The platform provides detailed analytics, content calendar, automated posting, and engagement tracking. It supports major social media platforms including Facebook, Twitter, Instagram, and LinkedIn.',
+        image: 'image5.jpg',
+        technologies: ['React', 'Python', 'PostgreSQL', 'Redis', 'Social APIs'],
+        features: [
+            'Multi-platform social media management',
+            'Content scheduling and automation',
+            'Performance analytics and reporting',
+            'Content calendar and planning',
+            'Engagement tracking and monitoring',
+            'Team collaboration tools',
+            'API integrations with major platforms'
+        ],
+        link: 'https://www.google.com',
+        github: 'https://github.com/username/social-dashboard'
     }
-  }
-}
+]);
+
+const showProjectDetails = (projectId) => {
+    selectedProject.value = projects.value.find(p => p.id === projectId);
+    isModalOpen.value = true;
+    document.body.style.overflow = 'hidden'; // Previne scroll do body
+};
+
+const closeModal = () => {
+    isModalOpen.value = false;
+    selectedProject.value = null;
+    document.body.style.overflow = 'auto'; // Restaura scroll do body
+};
 </script>
 
 <style scoped>
@@ -185,5 +303,262 @@ export default {
   font-weight: 500;
   border: 1px solid rgba(104, 241, 40, 0.3);
   display: inline-block;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: #ff6b6b;
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.modal-subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.modal-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-description h3,
+.modal-features h3,
+.modal-technologies h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.modal-description p {
+    font-size: 1.2rem;
+    color: #fff;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.modal-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-features li {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.modal-features li::before {
+    content: "•";
+    color: #68f128;
+    margin-right: 10px;
+}
+
+.modal-technologies .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.modal-technologies .tech-tag-modal {
+    background: rgba(104, 241, 40, 0.2);
+    color: #68f128;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(104, 241, 40, 0.3);
+    display: inline-block;
+}
+
+.modal-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.modal-link {
+    background: #1267e6;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease;
+}
+
+.modal-link:hover {
+    background: #1055c2;
+}
+
+.modal-link.github {
+    background: #333;
+    color: #fff;
+}
+
+.modal-link.github:hover {
+    background: #222;
+}
+
+/* Responsividade para o modal */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    max-height: 95vh;
+    margin: 10px;
+  }
+  
+  .modal-body {
+    padding: 15px;
+  }
+  
+  .modal-title {
+    font-size: 2rem;
+  }
+  
+  .modal-subtitle {
+    font-size: 1rem;
+  }
+  
+  .modal-image {
+    height: 200px;
+  }
+  
+  .modal-description h3,
+  .modal-features h3,
+  .modal-technologies h3 {
+    font-size: 1.5rem;
+  }
+  
+  .modal-description p {
+    font-size: 1rem;
+  }
+  
+  .modal-features li {
+    font-size: 1rem;
+  }
+  
+  .modal-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .modal-link {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 98%;
+    margin: 5px;
+  }
+  
+  .modal-body {
+    padding: 12px;
+  }
+  
+  .modal-title {
+    font-size: 1.8rem;
+  }
+  
+  .modal-image {
+    height: 150px;
+  }
+  
+  .modal-description h3,
+  .modal-features h3,
+  .modal-technologies h3 {
+    font-size: 1.3rem;
+  }
+  
+  .modal-description p {
+    font-size: 0.95rem;
+  }
+  
+  .modal-features li {
+    font-size: 0.95rem;
+  }
+  
+  .modal-link {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
 }
 </style>
