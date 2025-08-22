@@ -8,7 +8,7 @@ import CoursesSection from './components/sections/CoursesSection.vue';
 import ContactSection from './components/sections/ContactSection.vue';
 import SkillsSection from './components/sections/SkillsSection.vue';
 import ResumeSection from './components/sections/ResumeSection.vue';
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const profile = {
   name: 'Gabriel Penke',
@@ -19,6 +19,58 @@ const profile = {
 
 const activeSection = ref('home');
 
+// Função para detectar qual seção está visível
+const detectActiveSection = () => {
+  const sections = ['home', 'about', 'projects', 'courses', 'skills', 'contact', 'resume'];
+  const scrollContainer = document.querySelector('.scrollable-content');
+  
+  if (!scrollContainer) return;
+  
+  const scrollPosition = scrollContainer.scrollTop + 150; // Offset para melhor detecção
+  
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const sectionId = sections[i];
+    const element = document.getElementById(sectionId);
+    
+    if (element) {
+      const elementTop = element.offsetTop;
+      const elementHeight = element.offsetHeight;
+      
+      if (scrollPosition >= elementTop && scrollPosition < elementTop + elementHeight) {
+        if (activeSection.value !== sectionId) {
+          activeSection.value = sectionId;
+        }
+        break;
+      }
+    }
+  }
+};
+
+// Listener de scroll
+let scrollListener = null;
+
+onMounted(() => {
+  // Adiciona o listener de scroll no container específico
+  const scrollContainer = document.querySelector('.scrollable-content');
+  if (scrollContainer) {
+    scrollListener = () => detectActiveSection();
+    scrollContainer.addEventListener('scroll', scrollListener);
+    
+    // Detecta a seção inicial
+    detectActiveSection();
+  }
+});
+
+onUnmounted(() => {
+  // Remove o listener de scroll
+  if (scrollListener) {
+    const scrollContainer = document.querySelector('.scrollable-content');
+    if (scrollContainer) {
+      scrollContainer.removeEventListener('scroll', scrollListener);
+    }
+  }
+});
+
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
   if (element) {
@@ -26,7 +78,7 @@ const scrollToSection = (sectionId) => {
       behavior: 'smooth',
       block: 'start'
     });
-    activeSection.value = sectionId;
+    // Não precisamos mais definir activeSection aqui, pois o listener de scroll cuidará disso
   }
 };
 </script>
