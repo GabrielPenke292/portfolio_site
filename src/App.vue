@@ -106,7 +106,7 @@ const scrollToSection = (sectionId) => {
       <AboutSection />
       <ProjectsSection />
       <CoursesSection />
-      <SkillsSection />
+      <!-- <SkillsSection /> -->
       <ContactSection />
       <ResumeSection />
     </div>

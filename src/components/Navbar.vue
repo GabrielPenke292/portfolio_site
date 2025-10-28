@@ -42,7 +42,7 @@ const navItems = [
   { id: 'about', icon: FileText, label: 'About' },
   { id: 'projects', icon: List, label: 'Projects' },
   { id: 'courses', icon: BookOpen, label: 'Courses' },
-  { id: 'skills', icon: PenTool, label: 'Skills' },
+  // { id: 'skills', icon: PenTool, label: 'Skills' },
   { id: 'contact', icon: MessageCircle, label: 'Contact' },
   { id: 'resume', icon: File, label: 'Resume' },
 ];
