@@ -139,26 +139,19 @@ const projects = ref([
         ],
         link: 'https://flags-game.penke.dev',
     },
-    // {
-    //     id: 4,
-    //     title: 'Weather Dashboard',
-    //     subtitle: 'Real-time weather information app',
-    //     description: 'A weather dashboard providing real-time weather data and forecasts.',
-    //     fullDescription: 'A comprehensive weather dashboard that provides real-time weather information, hourly and daily forecasts, and historical weather data. The app integrates with multiple weather APIs for accurate data and includes features like location-based weather, weather maps, and customizable alerts. The interface is designed to be intuitive and provides weather information in an easy-to-understand format.',
-    //     image: 'image4.jpg',
-    //     technologies: ['JavaScript', 'OpenWeather API', 'Chart.js', 'CSS Grid'],
-    //     features: [
-    //         'Real-time weather data',
-    //         'Hourly and daily forecasts',
-    //         'Interactive weather maps',
-    //         'Location-based weather',
-    //         'Weather alerts and notifications',
-    //         'Historical weather data',
-    //         'Responsive dashboard design'
-    //     ],
-    //     link: 'https://www.google.com',
-    //     github: 'https://github.com/username/weather'
-    // },
+    {
+        id: 4,
+        title: 'Penke Theme',
+        subtitle: 'My own theme for VSCode',
+        description: 'My own theme for VSCode',
+        fullDescription: 'A beautiful and modern dark theme for Visual Studio Code inspired by Git Bash Linux terminal aesthetics. Features a classic black background with vibrant green accents, providing excellent syntax highlighting and a comfortable coding experience.',
+        image: 'penke-theme.png',
+        technologies: ['VSCode', 'JSON', 'CSS'],
+        features: [
+            'My own theme for VSCode',
+        ],
+        link: 'https://marketplace.visualstudio.com/items?itemName=GabrielPenke.penke-theme&ssr=false#review-details',
+    },
     // {
     //     id: 5,
     //     title: 'Social Media Dashboard',
