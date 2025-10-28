@@ -8,8 +8,8 @@
           <p>I really hope you like my portfolio and I'm looking forward to chat with you.</p>
         </div>
         <div class="hero-actions">
-          <button class="btn-primary">View Projects</button>
-          <button class="btn-secondary">Download CV</button>
+          <button class="btn-primary" @click="scrollToProjects">View Projects</button>
+          <button class="btn-secondary" @click="scrollToResume">Download CV</button>
         </div>
       </div>
     </div>
@@ -18,6 +18,19 @@
 
 <script setup>
 // Componente Home - Seção inicial do portfólio
+const scrollToProjects = () => {
+  const projectsSection = document.getElementById('projects');
+  if (projectsSection) {
+    projectsSection.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+const scrollToResume = () => {
+  const resumeSection = document.getElementById('resume');
+  if (resumeSection) {
+    resumeSection.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 </script>
 
 <style scoped>
