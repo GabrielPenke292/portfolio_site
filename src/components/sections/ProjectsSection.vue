@@ -3,7 +3,7 @@
     <div class="projects-container">
         <div class="projects-header">
             <h2 class="projects-title">Projects</h2>
-            <p class="projects-description">Here are some of the projects I've worked on.</p>
+            <p class="projects-description">Here are some of the personal projects I've worked on.</p>
         </div>
         <div class="projects-grid">
             <div class="project-item" v-for="project in projects" :key="project.id">
@@ -139,46 +139,46 @@ const projects = ref([
         ],
         link: 'https://flags-game.penke.dev',
     },
-    {
-        id: 4,
-        title: 'Weather Dashboard',
-        subtitle: 'Real-time weather information app',
-        description: 'A weather dashboard providing real-time weather data and forecasts.',
-        fullDescription: 'A comprehensive weather dashboard that provides real-time weather information, hourly and daily forecasts, and historical weather data. The app integrates with multiple weather APIs for accurate data and includes features like location-based weather, weather maps, and customizable alerts. The interface is designed to be intuitive and provides weather information in an easy-to-understand format.',
-        image: 'image4.jpg',
-        technologies: ['JavaScript', 'OpenWeather API', 'Chart.js', 'CSS Grid'],
-        features: [
-            'Real-time weather data',
-            'Hourly and daily forecasts',
-            'Interactive weather maps',
-            'Location-based weather',
-            'Weather alerts and notifications',
-            'Historical weather data',
-            'Responsive dashboard design'
-        ],
-        link: 'https://www.google.com',
-        github: 'https://github.com/username/weather'
-    },
-    {
-        id: 5,
-        title: 'Social Media Dashboard',
-        subtitle: 'Analytics and management platform',
-        description: 'A comprehensive dashboard for managing and analyzing social media accounts.',
-        fullDescription: 'A powerful social media management platform that allows users to schedule posts, analyze performance metrics, and manage multiple social media accounts from a single dashboard. The platform provides detailed analytics, content calendar, automated posting, and engagement tracking. It supports major social media platforms including Facebook, Twitter, Instagram, and LinkedIn.',
-        image: 'image5.jpg',
-        technologies: ['React', 'Python', 'PostgreSQL', 'Redis', 'Social APIs'],
-        features: [
-            'Multi-platform social media management',
-            'Content scheduling and automation',
-            'Performance analytics and reporting',
-            'Content calendar and planning',
-            'Engagement tracking and monitoring',
-            'Team collaboration tools',
-            'API integrations with major platforms'
-        ],
-        link: 'https://www.google.com',
-        github: 'https://github.com/username/social-dashboard'
-    }
+    // {
+    //     id: 4,
+    //     title: 'Weather Dashboard',
+    //     subtitle: 'Real-time weather information app',
+    //     description: 'A weather dashboard providing real-time weather data and forecasts.',
+    //     fullDescription: 'A comprehensive weather dashboard that provides real-time weather information, hourly and daily forecasts, and historical weather data. The app integrates with multiple weather APIs for accurate data and includes features like location-based weather, weather maps, and customizable alerts. The interface is designed to be intuitive and provides weather information in an easy-to-understand format.',
+    //     image: 'image4.jpg',
+    //     technologies: ['JavaScript', 'OpenWeather API', 'Chart.js', 'CSS Grid'],
+    //     features: [
+    //         'Real-time weather data',
+    //         'Hourly and daily forecasts',
+    //         'Interactive weather maps',
+    //         'Location-based weather',
+    //         'Weather alerts and notifications',
+    //         'Historical weather data',
+    //         'Responsive dashboard design'
+    //     ],
+    //     link: 'https://www.google.com',
+    //     github: 'https://github.com/username/weather'
+    // },
+    // {
+    //     id: 5,
+    //     title: 'Social Media Dashboard',
+    //     subtitle: 'Analytics and management platform',
+    //     description: 'A comprehensive dashboard for managing and analyzing social media accounts.',
+    //     fullDescription: 'A powerful social media management platform that allows users to schedule posts, analyze performance metrics, and manage multiple social media accounts from a single dashboard. The platform provides detailed analytics, content calendar, automated posting, and engagement tracking. It supports major social media platforms including Facebook, Twitter, Instagram, and LinkedIn.',
+    //     image: 'image5.jpg',
+    //     technologies: ['React', 'Python', 'PostgreSQL', 'Redis', 'Social APIs'],
+    //     features: [
+    //         'Multi-platform social media management',
+    //         'Content scheduling and automation',
+    //         'Performance analytics and reporting',
+    //         'Content calendar and planning',
+    //         'Engagement tracking and monitoring',
+    //         'Team collaboration tools',
+    //         'API integrations with major platforms'
+    //     ],
+    //     link: 'https://www.google.com',
+    //     github: 'https://github.com/username/social-dashboard'
+    // }
 ]);
 
 const showProjectDetails = (projectId) => {
