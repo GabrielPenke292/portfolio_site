@@ -84,23 +84,22 @@ const selectedProject = ref(null);
 const projects = ref([
     {
         id: 1,
-        title: 'E-Commerce Platform',
-        subtitle: 'Full-stack e-commerce solution',
-        description: 'A complete e-commerce platform with user authentication, product management, and payment integration.',
-        fullDescription: 'This project is a comprehensive e-commerce solution that includes user registration and authentication, product catalog with search and filtering, shopping cart functionality, secure payment processing with Stripe integration, order management system, and an admin panel for product and user management. The platform is built with modern web technologies and follows responsive design principles.',
-        image: 'image1.jpg',
-        technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe API'],
+        title: 'Mural da UFLA',
+        subtitle: 'Platform to help students',
+        description: 'A platform where students can find a housing offer',
+        fullDescription: 'It’s a platform designed to help students from the city of Lavras, Minas Gerais, Brazil, find a spot in a student housing (“república”). Users can post ads completely free of charge, and the listings can also include private lessons. The system’s front end is built with Vue.js, and there’s a Laravel API that provides data for another platform I’m developing.',
+        image: 'mural.png',
+        technologies: ['Vue.js', 'Node.js', 'MySQL', 'Laravel', 'Docker', 'Redis'],
         features: [
             'User authentication and authorization',
-            'Product catalog with search and filters',
-            'Shopping cart and checkout process',
-            'Secure payment processing',
-            'Order tracking and management',
-            'Admin dashboard for management',
-            'Responsive design for all devices'
+            'Housing offer management',
+            'Housing offer search',
+            'Housing offer details',
+            'Housing offer contact',
+            'Housing offer photos',
+            'Housing offer videos',
         ],
-        link: 'https://www.google.com',
-        github: 'https://github.com/username/ecommerce'
+        link: 'https://muralufla.com.br',
     },
     {
         id: 2,
@@ -252,7 +251,13 @@ const closeModal = () => {
 .project-image {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 .project-title {
@@ -459,6 +464,8 @@ const closeModal = () => {
     align-items: center;
     gap: 10px;
     transition: background 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .modal-link:hover {
