@@ -3,16 +3,16 @@
         <div class="courses-container">
             <div class="courses-header">
                 <h2 class="courses-title">Courses</h2>
-                <p class="courses-description">Here are some of the courses I've taken.</p>
+                <p class="courses-description">Here are some of the courses and certifications I've taken.</p>
             </div>
             <div class="courses-grid">  
                 <div class="course-item" v-for="course in courses" :key="course.title">
-                    <div class="course-image">
-                        <img :src="course.image" :alt="course.title" />
+                    <div class="course-image-container">
+                        <img :src="course.image" :alt="course.title" class="course-image-img" />
                     </div>
                     <h3 class="course-title">{{ course.title }}</h3>
                     <p class="course-description">{{ course.description }}</p>
-                    <a :href="course.certificate" class="course-link">View Certificate</a>
+                    <a :href="course.certificate" class="course-link" target="_blank">View Certificate</a>
                 </div>
             </div>
         </div>
@@ -26,32 +26,60 @@ export default {
         return {
             courses: [
                 {
-                    title: 'The Complete 2025 Web Development Bootcamp',
-                    platform: 'Udemy',
-                    description: 'Description of course 1',
-                    image: 'image1.jpg',
-                    certificate: 'https://www.google.com'
+                    title: 'Node JS',
+                    platform: 'Danki Code',
+                    description: 'Course of Node JS',
+                    image: 'nodejs.png',
+                    certificate: 'https://drive.google.com/file/d/1Hg08hityvgyaR5HDKtxx059B2k6HZ9jv/view?usp=drive_link'
                 },
                 {
-                    title: 'The Complete 2025 Web Development Bootcamp',
-                    platform: 'Udemy',
-                    description: 'Description of course 2',
-                    image: 'image2.jpg',
-                    certificate: 'https://www.google.com'
+                    title: 'Docker',
+                    platform: 'Danki Code',
+                    description: 'Course of Docker',
+                    image: 'docker.jpeg',
+                    certificate: 'https://drive.google.com/file/d/14knmXf7ylsgdoQmHzdwz9K7eAjGJBPbK/view?usp=drive_link'
                 },
                 {
-                    title: 'The Complete 2025 Web Development Bootcamp',
-                    platform: 'Udemy',
-                    description: 'Description of course 3',
-                    image: 'image3.jpg',
-                    certificate: 'https://www.google.com'
+                    title: 'Python',
+                    platform: 'Danki Code',
+                    description: 'Course of Python Web',
+                    image: 'python.png',
+                    certificate: 'https://drive.google.com/file/d/1M-ynd7ImCG7AeV4S6OnJUeCUFiNkmcD6/view?usp=sharing'
                 },
                 {
-                    title: 'The Complete 2025 Web Development Bootcamp',
+                    title: 'React',
+                    platform: 'Danki Code',
+                    description: 'Course of React',
+                    image: 'react.png',
+                    certificate: 'https://drive.google.com/file/d/12s8_WKqOZQqYi76ShIqQQSlfsAqGkwpZ/view?usp=sharing'
+                },
+                {
+                    title: 'Java Web',
+                    platform: 'Danki Code',
+                    description: 'Course of Java Web',
+                    image: 'java.jpg',
+                    certificate: 'https://drive.google.com/file/d/1Q3fbn7_cfwJ7Uwq3VKygK2rj7bkgEauy/view?usp=sharing'
+                },
+                {
+                    title: 'Web Design Express',
+                    platform: 'Danki Code',
+                    description: 'Course of Web Design Express',
+                    image: 'web-design-express.png',
+                    certificate: 'https://drive.google.com/file/d/1eQZ3VKjUOIqzCvkXrfbgUUyGwoccZaui/view?usp=sharing'
+                },
+                {
+                    title: 'Firebase 8',
+                    platform: 'Danki Code',
+                    description: 'Course of Firebase 8',
+                    image: 'firebase.png',
+                    certificate: 'https://drive.google.com/file/d/1t3C02J6YzwoEYP8jh93aNO3wfN-4hnef/view?usp=sharing'
+                },
+                {
+                    title: 'Docker',
                     platform: 'Udemy',
-                    description: 'Description of course 4',
-                    image: 'image4.jpg',
-                    certificate: 'https://www.google.com'
+                    description: 'Learn Docker from zero to advanced',
+                    image: 'docker2.png',
+                    certificate: 'https://drive.google.com/file/d/1kg0S8OJnStEgz8zgdjb6oHiEJYXjv0Yb/view?usp=sharing'
                 }
             ]
         }
@@ -145,5 +173,15 @@ export default {
     display: inline-block;
 }
 
+.course-image-container {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
 
+.course-image-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 </style>
